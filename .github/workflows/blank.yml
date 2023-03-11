@@ -28,8 +28,5 @@ jobs:
       - name: Install dependecies
         run: npm install
 
-      - name: Start application
-        run: npm start
-
       - name: Run tests
         run: npm run cypress:test-coverage
