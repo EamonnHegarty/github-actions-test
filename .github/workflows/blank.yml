@@ -28,8 +28,7 @@ jobs:
       - name: Install dependecies
         run: npm install
 
-      - name: start application
-        run: npm start
-
-      - name: Run tests
-        run: npm run cypress:test-coverage
+      - name: Start app and run tests
+        run: |
+          npm install -g concurrently
+          concurrently "npm start" "npm run cypress:test-coverage"
