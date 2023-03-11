@@ -28,7 +28,8 @@ jobs:
       - name: Install dependecies
         run: npm install
 
-      - name: Start app and run tests
-        run: |
-          npm install -g concurrently
-          concurrently "npm start & npx wait-on http://localhost:3000" "npm run cypress:test-coverage"
+      - name: start application
+        run: npm start & npx wait-on http://localhost:3000
+
+      - name: Run tests
+        run: npm run cypress:test-coverage
