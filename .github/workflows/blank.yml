@@ -20,5 +20,5 @@ jobs:
       - name: Run tests
         env:
           APP_ENV: ${{ matrix.env }}
-          BASE_URL: ${{ secrets[${{ matrix.env }}_URL] }}
+          BASE_URL: ${{ secrets.DEV_URL }}
         run: npm start & npm run cypress:test-coverage
