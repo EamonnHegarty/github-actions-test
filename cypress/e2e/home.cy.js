@@ -1,7 +1,7 @@
 describe("Home Page tests", () => {
   const BASE_URL = Cypress.env("BASE_URL");
 
-  it("Correctly visits the Home page", () => {
+  it(`Correctly visits the Home page - ${BASE_URL}`, () => {
     cy.visit(BASE_URL);
     cy.location("pathname").should("eq", "/");
   });
