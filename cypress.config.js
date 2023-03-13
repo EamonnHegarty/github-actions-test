@@ -1,7 +1,7 @@
 const { defineConfig } = require("cypress");
-const env = require("./cypress.env.json");
+// const env = require("./cypress.env.json");
 
-const isLocal = env.ENVIRONMENT === "local";
+// const isLocal = env.ENVIRONMENT === "local";
 
 module.exports = defineConfig({
   e2e: {
@@ -13,7 +13,7 @@ module.exports = defineConfig({
       // with any changed environment variables
       return config;
     },
-    video: isLocal,
-    screenshotsFolder: isLocal ? "cypress/screenshots" : false,
+    // video: isLocal,
+    // screenshotsFolder: isLocal ? "cypress/screenshots" : false,
   },
 });
