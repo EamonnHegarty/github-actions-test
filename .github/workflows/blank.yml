@@ -32,3 +32,8 @@ jobs:
         env:
           APP_ENV: dev
         run: npm start & npm run cypress:test-dev
+
+      - name: Run tests test
+        env:
+          APP_ENV: test
+        run: npm start & npm run cypress:test-test
