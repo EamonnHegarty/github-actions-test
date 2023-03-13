@@ -1,4 +1,4 @@
-const { getUrlForEnvironment } = require("../support/utils");
+import { getUrlForEnvironment } from "../support/utils";
 
 describe("Home Page tests - dev", () => {
   it("Correctly visits the Home page", () => {
