@@ -22,7 +22,6 @@ jobs:
         run: npm install
 
       - name: Run tests
-        env:
-          APP_ENV: ${{ github.event.inputs.env }}
-          CYPRESS_baseUrl: ${{ secrets.DEV_URL }}
+        with:
+          config: baseUrl=${{ secrets.DEV_URL }}
         run: npm start & npm run cypress:test-coverage
