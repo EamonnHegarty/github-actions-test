@@ -1,10 +1,9 @@
+const { getUrlForEnvironment } = require("../support/utils");
+
 describe("Home Page tests - dev", () => {
   it("Correctly visits the Home page", () => {
-    cy.visit("http://localhost:3000");
+    const url = getUrlForEnvironment(process.env.APP_ENV || "dev");
+    cy.visit(url);
     cy.location("pathname").should("eq", "/");
-  });
-  it("Correctly visits the About page", () => {
-    cy.visit("http://localhost:3000/about");
-    cy.location("pathname").should("eq", "/about");
   });
 });

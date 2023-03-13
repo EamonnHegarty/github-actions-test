@@ -19,7 +19,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cypress:test-coverage": "npx nyc cypress run"
+    "cypress:test-coverage": "npx nyc cypress run",
+    "cypress:test-dev": "cross-env APP_ENV=dev npx nyc cypress run",
+    "cypress:test-test": "cross-env APP_ENV=test npx nyc cypress run"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +44,7 @@
   "devDependencies": {
     "@cypress/code-coverage": "^3.10.0",
     "@cypress/instrument-cra": "^1.4.0",
+    "cross-env": "^7.0.3",
     "cypress": "^12.7.0",
     "eslint-plugin-cypress": "^2.12.1",
     "tailwindcss": "^3.2.4"

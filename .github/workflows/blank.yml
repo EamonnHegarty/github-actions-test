@@ -28,5 +28,7 @@ jobs:
       - name: Install dependecies
         run: npm install
 
-      - name: Run tests
-        run: npm start & npm run cypress:test-coverage
+      - name: Run tests dev
+        env:
+          APP_ENV: dev
+        run: npm start & npm run cypress:test-dev
