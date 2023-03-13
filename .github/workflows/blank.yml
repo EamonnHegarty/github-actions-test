@@ -2,14 +2,18 @@ name: CI
 
 on:
   workflow_dispatch:
+    inputs:
+      env:
+        description: "Environment"
+        required: true
+        default: "dev"
+        options:
+          dev: "Dev"
+          test: "Test"
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        env: [dev, test]
 
     steps:
       - uses: actions/checkout@v2
@@ -19,6 +23,6 @@ jobs:
 
       - name: Run tests
         env:
-          APP_ENV: ${{ matrix.env }}
+          APP_ENV: ${{ github.event.inputs.env }}
           BASE_URL: ${{ secrets.DEV_URL }}
         run: npm start & npm run cypress:test-coverage
