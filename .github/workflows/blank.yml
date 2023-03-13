@@ -2,6 +2,14 @@ name: CI
 
 on:
   workflow_dispatch:
+    inputs:
+      env:
+        description: "Environment"
+        required: true
+        default: "dev"
+        options:
+          dev: "Dev"
+          test: "Test"
 
 jobs:
   build:
@@ -15,5 +23,5 @@ jobs:
 
       - name: Run tests
         env:
-          CYPRESS_BASE_URL: https://localhost:3000
-        run: npm start & npm run cypress:test-coverage --env baseUrl=$CYPRESS_BASE_URL
+          MY_URL: ${{ github.event.inputs.env == 'test' && secrets.TEST_URL || secrets.DEV_URL }}
+        run: npm start & npm run cypress:test-coverage --env baseUrl=$MY_URL
