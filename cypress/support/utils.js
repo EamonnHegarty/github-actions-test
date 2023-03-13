@@ -1,6 +1,8 @@
 // support/utils.js
 
-function getUrlForEnvironment(env) {
+// support/utils.js
+
+export function getUrlForEnvironment(env) {
   switch (env) {
     case "dev":
       return "http://localhost:3000/";
@@ -10,5 +12,3 @@ function getUrlForEnvironment(env) {
       throw new Error(`Unknown environment: ${env}`);
   }
 }
-
-export default getUrlForEnvironment;
