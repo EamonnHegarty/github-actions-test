@@ -1,5 +1,17 @@
 name: Cypress tests
-on: push
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Select environment to run tests"
+        required: true
+        default: "test"
+        options:
+          dev:
+            description: "Run tests in dev environment"
+          test:
+            description: "Run tests in test environment"
+
 jobs:
   cypress-run:
     name: Cypress run
@@ -11,4 +23,4 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
-          config: pageLoadTimeout=100000,baseUrl=https://aswa-tccc-bib-test-pyth-01.azurewebsites.net/
+          config: pageLoadTimeout=100000,baseUrl=${{ secrets[inputs.environment + '_URL'] }}
