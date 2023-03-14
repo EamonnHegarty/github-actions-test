@@ -11,5 +11,7 @@ runs:
       uses: actions/checkout@v2
     - name: Install dependencies
       run: npm install
+      shell: bash
     - name: Run tests
       run: npm start & npm run cypress:test-coverage
+      shell: bash
