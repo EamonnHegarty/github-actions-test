@@ -8,8 +8,8 @@ runs:
       run: npm install
       shell: bash
 
-    - name: Run Application
-      run: npm start & echo "Waiting for application to start..." && node_modules/.bin/wait-on --timeout 60000 http://localhost:3000 && echo "Application started successfully!"
+    - name: Start app and wait for it to start
+      run: npm start & sleep 30
       shell: bash
 
     - name: Run Cypress
