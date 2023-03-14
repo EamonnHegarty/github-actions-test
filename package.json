@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress:test-coverage": "npx nyc cypress run",
-    "start-with-coverage": "npx nyc --silent react-scripts -r @cypress/instrument-cra start"
+    "cypress:coverage-summary": "npx nyc report --reporter=text-summary"
   },
   "eslintConfig": {
     "extends": [

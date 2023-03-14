@@ -12,5 +12,9 @@ runs:
       uses: cypress-io/github-action@v5
       with:
         browser: chrome
-        start: npm run start-with-coverage
+        start: npm start
         wait-on: "http://localhost:3000"
+
+    - name: Get Coverage
+      run: npm run cypress:coverage-summary
+      shell: bash
