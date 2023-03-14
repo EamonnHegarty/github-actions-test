@@ -1,32 +1,32 @@
-# This is a basic workflow to help you get started with Actions
+name: Cypress Tests
 
-name: CI
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
-  push:
-    branches: ["master"]
-  pull_request:
-    branches: ["master"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      environment:
+        description: "Which environment to run tests against"
+        required: true
+        default: "dev"
+        options:
+          dev:
+            description: "Development environment"
+          test:
+            description: "Test environment"
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  run-tests:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    env:
+      APP_URL: ${{ matrix.environment == 'dev' && secrets.DEV_URL || secrets.TEST_URL }}
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-
-      - name: Install dependecies
+      - uses: actions/checkout@v2
+      - name: Install dependencies
         run: npm install
-
-      - name: Run tests
-        run: npm start & npm run cypress:test-coverage
+      - name: Start app
+        run: npm start &
+        # Wait for the app to start up
+        # You may need to adjust the delay depending on how long it takes for your app to start up
+        # The default is 30 seconds, but you can increase or decrease it as needed
+        timeout: 60s
+      - name: Run Cypress tests
+        run: npm run cypress:run
