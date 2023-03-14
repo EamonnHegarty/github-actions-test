@@ -9,7 +9,7 @@ runs:
       shell: bash
 
     - name: Start app and wait for it to start
-      run: npm start & sleep 30
+      run: npm start & sleep 120
       shell: bash
 
     - name: Run Cypress
