@@ -11,4 +11,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Run Cypress Tests
-        uses: ./.github/actions/Cypress-Tests
+        uses: ./.github/actions/cypress
