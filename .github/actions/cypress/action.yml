@@ -11,7 +11,7 @@ runs:
       shell: bash
 
     - name: Run Application
-      run: npm start & wait-on http://localhost:3000
+      run: npx start & wait-on http://localhost:3000
       shell: bash
 
     - name: Run Cypress
