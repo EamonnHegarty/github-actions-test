@@ -12,6 +12,7 @@ runs:
       uses: cypress-io/github-action@v5
       with:
         browser: chrome
+        headed: true
         start: npm start
         wait-on: "http://localhost:3000"
         wait-on-timeout: 300
