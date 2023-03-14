@@ -13,5 +13,5 @@ runs:
       shell: bash
 
     - name: Run Cypress
-      run: npm run cypress:coverage
+      run: npm run cypress:test-coverage
       shell: bash
