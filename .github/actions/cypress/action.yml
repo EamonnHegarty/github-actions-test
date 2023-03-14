@@ -1,9 +1,5 @@
 name: Cypress-Tests
 
-# This action does not need to run on any event triggers, it is only used by the workflow
-# Therefore, there is no `on` key specified.
-
-# Define the steps for running the tests
 runs:
   using: composite
   steps:
@@ -14,6 +10,10 @@ runs:
       run: npm install
       shell: bash
 
-    - name: Run tests
-      run: npm start & npm run cypress:test-coverage
+    - name: Run Application
+      run: npm start & wait-on http://localhost:3000
+      shell: bash
+
+    - name: Run Cypress
+      run: npm run cypress:coverage
       shell: bash
