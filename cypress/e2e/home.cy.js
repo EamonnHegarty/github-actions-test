@@ -1,7 +1,8 @@
 describe("My test suite", () => {
+  beforeEach(() => {
+    cy.visit("/");
+  });
   it("My test", () => {
-    const baseUrl = Cypress.env("baseUrl");
-    cy.visit(baseUrl);
-    // more test steps here
+    cy.location("pathname").should("eq", "/");
   });
 });
