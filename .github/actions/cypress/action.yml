@@ -14,4 +14,3 @@ runs:
         browser: chrome
         start: npm start
         wait-on: "http://localhost:3000"
-      shell: bash
