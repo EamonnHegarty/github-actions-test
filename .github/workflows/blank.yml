@@ -1,26 +1,14 @@
-# This is a basic workflow to help you get started with Actions
+name: Run Cypress Tests
 
-name: CI
-
-# Controls when the workflow will run
 on:
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  Cypress-Test:
-    # The type of runner that the job will run on
+  run-cypress-tests:
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
-      - name: Install dependecies
-        run: npm install
-
-      - name: Run tests
-        run: npm start & npm run cypress:test-coverage
+      - name: Run Cypress Tests
+        uses: ./.github/actions/Cypress-Tests

@@ -1,0 +1,15 @@
+name: Cypress-Tests
+
+# This action does not need to run on any event triggers, it is only used by the workflow
+# Therefore, there is no `on` key specified.
+
+# Define the steps for running the tests
+runs:
+  using: composite
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Install dependencies
+      run: npm install
+    - name: Run tests
+      run: npm start & npm run cypress:test-coverage
