@@ -23,4 +23,4 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
-          config: pageLoadTimeout=100000,baseUrl=${{ secrets[inputs.environment + '_URL'] }}
+          config: pageLoadTimeout=100000,baseUrl=${{ secrets.DEV_URL }}
