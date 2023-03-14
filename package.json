@@ -19,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cypress:test-coverage": "npx nyc cypress run"
+    "cypress:test-coverage": "npx nyc cypress run",
+    "start-with-coverage": "npm run start && npm run cypress:test-coverage"
   },
   "eslintConfig": {
     "extends": [

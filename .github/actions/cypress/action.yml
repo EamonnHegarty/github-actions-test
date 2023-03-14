@@ -12,5 +12,5 @@ runs:
       uses: cypress-io/github-action@v3
       with:
         browser: chrome
-        start: npm start
+        start: npm run start-with-coverage
         wait-on: "http://localhost:3000"
