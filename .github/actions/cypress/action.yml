@@ -9,7 +9,7 @@ runs:
       shell: bash
 
     - name: Run Application
-      run: npm start & node_modules/.bin/wait-on http://localhost:3000
+      run: npm start & echo "Waiting for application to start..." && node_modules/.bin/wait-on --timeout 60000 http://localhost:3000 && echo "Application started successfully!"
       shell: bash
 
     - name: Run Cypress
