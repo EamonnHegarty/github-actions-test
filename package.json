@@ -15,10 +15,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts -r @cypress/instrument-cra start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "start:instrumented": "react-scripts -r @cypress/instrument-cra start",
     "cypress:test-coverage": "npx nyc cypress run",
     "cypress:coverage-summary": "npx nyc report --reporter=text"
   },

@@ -8,12 +8,14 @@ runs:
       run: npm install
       shell: bash
 
+    - name: Start client
+      run: npm run start:instrumented
+
     - name: Cypress run
       uses: cypress-io/github-action@v5
       with:
         browser: chrome
         headed: true
-        start: npm start
         wait-on: "http://localhost:3000"
         wait-on-timeout: 300
 
