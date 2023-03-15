@@ -10,6 +10,7 @@ runs:
 
     - name: Start client
       run: npm run start:instrumented
+      shell: bash
 
     - name: Cypress run
       uses: cypress-io/github-action@v5
