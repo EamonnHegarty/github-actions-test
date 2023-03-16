@@ -26,7 +26,7 @@ runs:
         wait-on: "http://localhost:3000"
         wait-on-timeout: 300
         env: # Or as an environment variable
-          WEB_APP_ENV: ${{ secrets.WEB_APP_ENV }}
+          WEB_APP_ENV: local
 
     - name: Get Coverage
       run: npm run cypress:coverage-summary
