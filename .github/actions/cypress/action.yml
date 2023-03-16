@@ -30,8 +30,8 @@ runs:
         start: npm run start:instrumented
         wait-on: "http://localhost:3000"
         wait-on-timeout: 300
-        env:
-          WEB_APP_ENV: ${{ secrets.WEB_APP_ENV }}
+      env:
+        CYPRESS_WEB_APP_ENV: ${{ secrets.WEB_APP_ENV }}
 
     - name: Get Coverage
       run: npm run cypress:coverage-summary
