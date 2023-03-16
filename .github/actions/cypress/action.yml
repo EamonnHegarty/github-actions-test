@@ -1,3 +1,7 @@
+name: Cypress
+
+description: Cypress run
+
 runs:
   using: composite
   steps:
@@ -19,9 +23,15 @@ runs:
       shell: bash
 
     - name: Cypress run
-      env:
-        MY_SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}
-      run: npm run start:instrumented
+      uses: cypress-io/github-action@v5
+      with:
+        browser: chrome
+        headed: true
+        start: npm run start:instrumented
+        wait-on: "http://localhost:3000"
+        wait-on-timeout: 300
+        env:
+          WEB_APP_ENV: ${{ secrets.WEB_APP_ENV }}
 
     - name: Get Coverage
       run: npm run cypress:coverage-summary
