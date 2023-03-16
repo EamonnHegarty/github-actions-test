@@ -14,12 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     name: cypress
 
-    env:
-      WEB_APP: local
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Run tests
         uses: ./.github/actions/cypress
+        env: # Or as an environment variable
+          credentials: ${{ secrets.WEB_APP_ENV }}
