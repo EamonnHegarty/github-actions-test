@@ -1,5 +1,9 @@
 runs:
   using: composite
+
+  env:
+    WEB_APP: local
+
   steps:
     - name: Set up Node.js
       uses: actions/setup-node@v3
