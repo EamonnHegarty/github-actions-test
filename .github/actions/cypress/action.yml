@@ -20,9 +20,9 @@ runs:
         browser: chrome
         headed: true
         start: npm run start:instrumented
-        env:
-          WEB_APP_ENV: ${{ secrets.WEB_APP_ENV }}
         wait-on: "http://localhost:3000"
+        env: # Or as an environment variable
+          WEB_APP_ENV: ${{ secrets.WEB_APP_ENV }}
         wait-on-timeout: 300
 
     - name: Get Coverage
