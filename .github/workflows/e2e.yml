@@ -11,13 +11,17 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   Cypress-Test:
-    environment: CI
     runs-on: ubuntu-latest
     name: cypress
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Print name
+        run: echo "Hello $NAME. $BUILD. Using Java Version $JAVA_VERSION. My API_KEY is ${{ secrets.WEB_APP_ENV }}"
+        env:
+          BUILD: "We are currently running the Build job"
 
       - name: Run tests
         uses: ./.github/actions/cypress
