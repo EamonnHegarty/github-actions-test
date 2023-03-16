@@ -19,7 +19,7 @@ runs:
       with:
         browser: chrome
         headed: true
-        start: npm start
+        start: npm run start:instrumented
         wait-on: "http://localhost:3000"
         wait-on-timeout: 300
 
