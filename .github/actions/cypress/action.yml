@@ -16,17 +16,12 @@ runs:
 
     - name: Build the app
       run: npm run build
+      shell: bash
 
     - name: Cypress run
-      uses: cypress-io/github-action@v5
-      with:
-        browser: chrome
-        headed: true
-        start: npm run start:instrumented
-        wait-on: "http://localhost:3000"
-        wait-on-timeout: 300
-        env: # Or as an environment variable
-          WEB_APP_ENV: local
+      env:
+        MY_SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}
+      run: npm run start:instrumented
 
     - name: Get Coverage
       run: npm run cypress:coverage-summary
